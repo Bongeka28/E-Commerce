@@ -5,7 +5,7 @@ import {
 } from "./js/script_function.js";
 
 let cart1=[];
-cart1 =cart;
+
 
 
 
@@ -42,6 +42,10 @@ const viewRegister = document.getElementById("signupDialog");
 const closeRegister = document.getElementById("closeSignup");
 
 //Cart and wislist
+
+const cartBtns = document.querySelectorAll(".bi.bi-bag");
+const viewCart = document.querySelector("#cartDialog");
+const closeCart = document.querySelector("#cartButton");
 
 const favoriteBtns = document.querySelectorAll(".bi.bi-heart");
 const viewFavorite = document.querySelector("#favDialog");
@@ -136,7 +140,7 @@ function displayProducts(products) {
 
       if (product) {
         addToCartFn(product.id);
-        localStorage.setItem('cart', JSON.stringify(cart1));
+        localStorage.setItem('cart', JSON.stringify(cart));
         
       }
         
@@ -231,3 +235,15 @@ function displayProducts(products) {
   });
 }
 displayProducts(products1);
+
+
+//
+cartBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    viewCart.showModal();
+  });
+});
+
+closeCart.addEventListener("click", () => {
+  viewCart.close();
+});
