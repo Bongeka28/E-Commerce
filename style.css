@@ -193,14 +193,17 @@ main {
 }
 
 /* PRODUCT ****************************/
+/* Changes made */
 .product {
+  border: 1px solid #b7d2c5;
   height: 30rem;
-  background: var(--white);
+  background: var(--green5);
   transition: var(--transition-sm);
   border-radius: 0.5rem;
   position: relative;
   overflow-y: hidden;
 }
+
 
 .product:hover {
   box-shadow: -1px 4px 13px -2px rgba(0, 0, 0, 0.75);
@@ -209,9 +212,11 @@ main {
 }
 
 .product img {
-  height: 65%;
+  height: 55%;
   width: 100%;
   object-fit: cover;
+  cursor: pointer;
+  transition: var(--transition-sm);
 }
 
 .product .details {
@@ -244,6 +249,7 @@ main {
   display: flex;
   gap: 0.5rem;
   margin-top: var(--space-xm);
+
 }
 
 .product .details button {
@@ -252,12 +258,13 @@ main {
   cursor: pointer;
 }
 
+/* Changes made */
 .product .discount {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 2;
-  background: var(--green100);
+  background: var(--green200);
   color: var(--gray50);
   padding: var(--space-xm);
   border-radius: var(--space-xm) 0 var(--space-xm) 0;
