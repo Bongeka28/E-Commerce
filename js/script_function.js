@@ -195,6 +195,71 @@ function removeByProductIdWishlistFn(product_id) {
 }
 
 
+// Using signnup
+function validateName(name) {
+  
+  if (
+    !name ||
+    typeof name !== 'string' ||
+    name.trim() === '' ||
+    /[^a-zA-Z\s]/.test(name)
+  ) {
+    throw new Error('Invalid name');
+  }
+
+}
+
+function validateEmail(email) {
+  if (!email || typeof email !== 'string') {
+    throw new Error('Invalid email');
+  }
+
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!regex.test(email.trim())) {
+    throw new Error('Invalid email');
+  }
+}
+
+
+function validatePassword(password) {
+  if (!password || typeof password !== 'string') {
+    throw new Error('Invalid password');
+  }
+
+  if(password.length < 6){
+    throw new Error("Enter at least 7 characters")
+  }
+}
+
+
+function validateConfirmPassword(password, confirmPassword) {
+  if (!confirmPassword) {
+    throw new Error('Password confirmation required');
+  }
+
+  if (password !== confirmPassword) {
+    throw new Error('Passwords do not match');
+  }
+}
+
+
+function registerPeople(name, email, password, confirmPassword) {
+  try {
+    validateName(name);
+    validateEmail(email);
+    validatePassword(password);
+    validateConfirmPassword(password, confirmPassword);
+
+    const user = { name, email, registered: true };
+    users.push(user);
+    return users;
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+
+
  export {
   cart,
   addToCartFn,
@@ -210,4 +275,10 @@ function removeByProductIdWishlistFn(product_id) {
   removeByWishListIdFn,
   removeByProductIdWishlistFn,
   users,
+  registerPeople,
+  validateName,
+  validateEmail,
+  validatePassword,
+  validateConfirmPassword,
+
 };

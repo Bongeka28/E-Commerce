@@ -11,6 +11,12 @@ import {
   removeByProductIdWishlistFn,
   wishList,
   products1,
+  users,
+  registerPeople,
+  validateName,
+  validateEmail,
+  validatePassword,
+  validateConfirmPassword,
 } from "../js/script_function.js";
 
 //fetch Tests
@@ -327,5 +333,134 @@ describe("[removeByProductIdWishlistFn]", () => {
   test("should remove from wishlist", () => {
     const product_id = 1;
     removeByProductIdWishlistFn(product_id);
+  });
+});
+
+
+//Sign Up Tests
+
+beforeEach(() => {
+  users.length = 0;
+});
+
+
+// [users]
+describe('[users]', () => {
+  test('should be defined', () => {
+    expect(users).toBeDefined();
+  });
+
+  test('should be an array', () => {
+    expect(Array.isArray(users)).toBe(true);
+  });
+});
+
+
+// [Name]
+describe('[validateName]', () => {
+
+  test('should be defined', () => {
+    expect( validateName).toBeDefined();
+  });
+  test('should be a function', () => {
+    expect(typeof validateName).toBe('function');
+  });
+
+  test('should throw if name is empty', () => {
+    expect(() => validateName('')).toThrow('Invalid name');
+  });
+
+  test('should throw if name is only spaces', () => {
+    expect(() => validateName('   ')).toThrow('Invalid name');
+  });
+
+  test('should throw if name is not a string', () => {
+    expect(() => validateName(123)).toThrow('Invalid name');
+  });
+
+  test('should throw if name contains special characters', () => {
+    expect(() => validateName('John@123')).toThrow('Invalid name');
+  });
+});
+
+
+// [Email]
+describe('[validateEmail]', () => {
+
+  test('should be defined', () => {
+    expect(validateEmail).toBeDefined();
+  });
+  test('should be a function', () => {
+    expect(typeof validateEmail).toBe('function');
+  });
+
+  test('should throw if email is empty', () => {
+    expect(() => validateEmail('')).toThrow('Invalid email');
+  });
+
+  test('should throw if email is not a string', () => {
+    expect(() => validateEmail(123)).toThrow('Invalid email');
+  });
+
+
+});
+
+
+// [Password]
+describe('[validatePassword]', () => {
+
+  test('should be defined', () => {
+    expect( validatePassword).toBeDefined();
+  });
+  test('should be a function', () => {
+    expect(typeof validatePassword).toBe('function');
+  });
+
+  test('should throw if password is empty', () => {
+    expect(() => validatePassword('')).toThrow('');
+  });
+
+  test('should throw if password is too short', () => {
+    expect(() => validatePassword('123')).toThrow('');
+  });
+
+  test('should throw if password is not a string', () => {
+    expect(() => validatePassword(123456)).toThrow('Invalid password');
+  });
+});
+
+
+// [ConfirmPassword]
+describe('[validateConfirmPassword]', () => {
+
+
+
+  test('should be defined', () => {
+    expect( validateConfirmPassword).toBeDefined();
+  });
+
+  test('should be a function', () => {
+    expect(typeof validateConfirmPassword).toBe('function');
+  });
+
+  test('should throw if confirm password is empty', () => {
+    expect(() => validateConfirmPassword('pass123', '')).toThrow('Password confirmation required');
+  });
+
+  test('should throw if passwords do not match', () => {
+    expect(() => validateConfirmPassword('pass123', 'diff123')).toThrow('Passwords do not match');
+  });
+});
+
+//register people tests
+
+describe('[registerPeople]', () => {
+  
+  test('should be defined', () => {
+    expect( validateConfirmPassword).toBeDefined();
+  });
+
+  test('should be a function', () => {
+    expect(typeof validateConfirmPassword).toBe('function');
   });
 });
