@@ -1,13 +1,17 @@
 import {
-    cart,
-    addToCartFn,
-    deleteFromCartFn,
-    fetchProductsFn,
-    removeByCartIdFn,
-    calculateTotalFn,
-    increaseProductCounterFn,
-    products1,
-  } from "../js/script_function.js";
+  cart,
+  addToCartFn,
+  deleteFromCartFn,
+  fetchProductsFn,
+  removeByCartIdFn,
+  calculateTotalFn,
+  increaseProductCounterFn,
+  addToWishListFn,
+  removeByWishListIdFn,
+  removeByProductIdWishlistFn,
+  wishList,
+  products1,
+} from "../js/script_function.js";
 
 //fetch Tests
 
@@ -240,3 +244,88 @@ describe("[increaseProductCounterFn]", () => {
       increaseProductCounterFn(productCartId);
     });
   });
+
+
+//wishlist
+describe("[wishList]", () => {
+  test("Should be defined", () => {
+    expect(wishList).toBeDefined();
+  });
+
+  test("Should be an array", () => {
+    expect(Array.isArray(wishList)).toBe(true);
+  });
+
+  test("Should be a valid array", () => {
+    expect(typeof wishList).toBe("object");
+  });
+});
+
+//adding to wishlist
+describe("[addToWishListFn]", () => {
+  test("Should be defined", () => {
+    expect(addToWishListFn).toBeDefined();
+  });
+
+  test("Should be a valid function", () => {
+    expect(typeof addToWishListFn).toBe("function");
+  });
+
+  test("productId should be a valid parameter", () => {
+    const productId = -1;
+    expect(() => addToWishListFn(productId)).toThrow("Invalid productId");
+  });
+
+
+  test("should add to wishlist", () => {
+    const productId = 1;
+    addToWishListFn(productId);
+  });
+});
+
+//removeByWishListIdFn test
+describe("[removeByWishListIdFn]", () => {
+  test("Should be defined", () => {
+    expect(removeByWishListIdFn).toBeDefined();
+  });
+
+  test("Should be a valid function", () => {
+    expect(typeof removeByWishListIdFn).toBe("function");
+  });
+
+  test("wishlist_id should be a valid parameter", () => {
+    const wishlist_id = "";
+    expect(() => removeByWishListIdFn(wishlist_id)).toThrow(
+      "Invalid wishlist_id"
+    );
+  });
+
+
+  test("should remove from wishlist", () => {
+    const wishlist_id = 1;
+    removeByWishListIdFn(wishlist_id);
+  });
+});
+
+//removeByProductIdWishlistFn tests
+describe("[removeByProductIdWishlistFn]", () => {
+  test("Should be defined", () => {
+    expect(removeByProductIdWishlistFn).toBeDefined();
+  });
+
+  test("Should be a valid function", () => {
+    expect(typeof removeByProductIdWishlistFn).toBe("function");
+  });
+
+  test("product_id should be a valid parameter", () => {
+    const product_id = "";
+    expect(() => removeByProductIdWishlistFn(product_id)).toThrow(
+      "Invalid product_id"
+    );
+  });
+
+  test("should remove from wishlist", () => {
+    const product_id = 1;
+    removeByProductIdWishlistFn(product_id);
+  });
+});
