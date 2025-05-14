@@ -487,3 +487,59 @@ footer p {
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
+
+#viewProductDialog .viewProductDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: var(--space-lg);
+  overflow-y: auto;
+
+}
+
+.dec-img {
+  cursor: pointer;
+  transition: var(--transition-lg);
+}
+
+#viewProductDialog .viewProductDiv .details-cart {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-left: var(--space-lg);
+}
+
+.productDesc {
+  border-style: solid;
+  border-width: 0.1rem;
+  padding: 0.2rem;
+  padding-left: 0.5rem;
+  padding-right: 1rem;
+  border-radius: 1rem;
+  border-color: rgb(10, 169, 121);
+
+
+}
+
+.dec-btn .dec-btnn {
+  position: fixed;
+  border: 1px solid var(--gray100);
+  width: 5rem;
+  height: 2rem;
+  margin-top: 0.4rem;
+}
+
+.dec-btn {
+  position: fixed;
+  background: white;
+  border-style: solid;
+  border-color: #75bc9a;
+  border-top: #fff;
+  border-left: #fff;
+  border-right: #fff;
+  width: 78%;
+  height: 3rem;
+  z-index: 10;
+  top: 6rem;
+}
