@@ -243,6 +243,35 @@ function displayProducts(products) {
 }
 displayProducts(products1);
 
+
+// Populate the category dropdown
+function populateCategoryFilter(products) {
+  const select = document.getElementById("category-select");
+  const uniqueCategories = [...new Set(products.map(p => p.category))];
+
+  uniqueCategories.forEach(category => {
+    const option = document.createElement("option");
+    option.value = category;
+    option.textContent = category;
+    select.appendChild(option);
+  });
+}
+
+// Filter products based on category selection
+document.getElementById("category-select").addEventListener("change", (e) => {
+  const selectedCategory = e.target.value;
+  const filtered = selectedCategory
+    ? products1.filter(product => product.category === selectedCategory)
+    : products1;
+
+  // Clear and redisplay products
+  container.innerHTML = "";
+  displayProducts(filtered);
+});
+
+// Populate dropdown on load
+populateCategoryFilter(products1);
+
 //Add to cart Render 
 let cartContainer = document.getElementById("cartDialog");
 let total = 0;
