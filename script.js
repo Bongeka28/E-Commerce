@@ -2,6 +2,11 @@ import {
   products1,
   addToCartFn,
   cart,
+  removeByCartIdFn,
+  calculateTotalFn,
+  deleteFromCartFn,
+  increaseProductCounterFn,
+ 
 } from "./js/script_function.js";
 
 let cart1=[];
@@ -141,7 +146,7 @@ function displayProducts(products) {
       if (product) {
         addToCartFn(product.id);
         localStorage.setItem('cart', JSON.stringify(cart));
-        
+        AddToCartRender();
       }
         
       } catch (error) {
@@ -236,8 +241,173 @@ function displayProducts(products) {
 }
 displayProducts(products1);
 
+//Add to cart Render 
+let cartContainer = document.getElementById("cartDialog");
+let total = 0;
+let StorageCartList=[];
+//Adding to cart HTML
+function AddToCartRender() {
+  total = 0;
+  let totalItemCount = 0;
+  cartContainer.innerHTML = `
+  <button id="cartButton">Close</button>
+        <h1>Cart</h1>`;
 
-//
+  
+
+   
+  for (let i = 0; i < cart.length; i++) {
+    const cartItem = cart[i];
+    const cartProduct = cartItem.product;
+    totalItemCount += cartItem.count;
+
+    const cartItemsTotal = calculateTotalFn(cartProduct, cartItem.count);
+    total += cartItemsTotal;
+
+    cartContainer.innerHTML += `
+    
+        <div class="cart">
+
+            <div class="cart-img">
+              <img
+                src="${cartProduct.thumbnail}"
+                alt="image"
+              />
+            </div>
+      
+            <div class="cart-description">
+              
+                <div class="title"><h1>${cartProduct.title}</h1></div>
+                <div class="price">$${cartProduct.price}</div>
+
+                <div class="quatity-div">
+
+                 
+                   <i class="bi bi-dash-circle-fill" data-id="${cartItem.id}"></i>
+                 
+                   
+                    <div>${cartItem.count}</div>
+
+                    
+                    <i class="bi bi-plus-circle-fill" data-id="${cartItem.id}"></i>
+                   
+                   
+                 
+                    
+                </div>
+
+                <div class="btn-cartDialog">
+                    <button class="btn-saveitem" type="button" data-id="${cartProduct.id}"> Wishlist</button>
+                    <button class="btn-removeitem" type="button" data-id="${cartItem.id}">Remove</button>
+                </div>
+            </div>
+      
+             
+        </div>
+ 
+        </div>
+     `;
+  }
+
+  cartContainer.innerHTML += `
+    <div class="btn-cartcheckout">
+      <div class="total-price">Total Price : $ ${total.toFixed(2)}</div>
+      <button class="btn-checkout">Checkout</button>
+    </div> 
+  `;
+
+  // Update cart count in the red dot
+  const cartCountSpan = document.querySelector(".cartCount span");
+  if (totalItemCount > 0) {
+    cartCountSpan.innerText = totalItemCount;
+    cartCountSpan.style.display = "inline";
+  } else {
+    cartCountSpan.style.display = "none";
+  }
+  const closeButton = document.getElementById("cartButton");
+  if (closeButton) {
+    closeButton.addEventListener("click", () => {
+      cartContainer.close();
+    });
+  }
+
+  const removeItemBtn = document.querySelectorAll(".btn-removeitem");
+
+  removeItemBtn.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      const cartId = event.currentTarget.dataset.id;
+      const cId = parseInt(cartId);
+
+      console.log("Cart ID removed from cart:", cartId);
+      removeByCartIdFn(cId);
+      AddToCartRender();
+    });
+  });
+
+  const increaseCountBtn = document.querySelectorAll(".bi.bi-plus-circle-fill");
+
+  increaseCountBtn.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      const productId = event.currentTarget.dataset.id;
+
+      const prodId = parseInt(productId);
+
+      console.log("Product ID :", productId);
+      increaseProductCounterFn(prodId);
+      AddToCartRender();
+    });
+  });
+
+  const decreaseCountBtn = document.querySelectorAll(".bi.bi-dash-circle-fill");
+
+  decreaseCountBtn.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      const productId = event.currentTarget.dataset.id;
+
+      const prodId = parseInt(productId);
+      for (let i = 0; i < cart.length; i++) {
+        const cartItem = cart[i];
+        console.log(cartItem);
+      }
+
+      console.log("Product ID :", productId);
+      deleteFromCartFn(prodId);
+      AddToCartRender();
+    });
+  });
+
+  // const addToWishListBtn = document.querySelectorAll(".btn-saveitem");
+
+  // addToWishListBtn.forEach((btn) => {
+  //   btn.addEventListener("click", (event) => {
+  //     try {
+  //       const productId = event.currentTarget.dataset.id;
+  //       const prodId = parseInt(productId);
+  //       console.log("Product ID added to wishlist:", productId);
+
+  //       addToWishListFn(prodId);
+  //       AddToWishListRender();
+  //       console.log(wishList);
+  //     } catch (error) {
+  //       alert(error.message);
+  //     }
+  //   });
+  // });
+
+  const checkoutbtn = document.querySelectorAll(".btn-checkout");
+  checkoutbtn.forEach((btn) => {
+
+    btn.addEventListener("click", () => {
+      viewLogin.showModal();
+      
+    });
+  });
+
+}
+
+
+
+//Event Listeners
 cartBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     viewCart.showModal();
