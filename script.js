@@ -9,6 +9,14 @@ import {
   wishList,
   addToWishListFn,
   removeByWishListIdFn,
+   users,
+  registerPeople,
+  validateName,
+  validateEmail,
+  validatePassword,
+  validateConfirmPassword,
+  
+
 } from "./js/script_function.js";
 
 let cart1=[];
@@ -537,3 +545,78 @@ cartBtns.forEach((btn) => {
 closeCart.addEventListener("click", () => {
   viewCart.close();
 });
+
+
+//login
+document.getElementById('signin-form').addEventListener("submit", function (e) {
+  e.preventDefault();
+
+ 
+  const emailInput=document.getElementById('email');
+  const passwordInput =document.getElementById('password');
+
+  const email = emailInput.value ;
+    const password= passwordInput.value;
+    try {
+      const loggedInUser= loginUser(email,password);
+      if (loggedInUser) {
+        alert(`You have logged in successfully as ${loggedInUser.name}!`);
+        document.getElementById('signin-form').reset();
+      }
+      
+    } catch (error) {
+      alert(error.message)
+    }
+
+});
+//
+
+//Signup
+document.getElementById("signup-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("fullname").value.trim();
+  const email = document
+    .getElementById("signup-email")
+    .value.trim()
+    .toLowerCase();
+  const password = document.getElementById("signup-password").value;
+  const confirmPassword = document.getElementById("confirm-password").value;
+
+  try {
+    // Validate inputs
+    validateName(name);
+    validateEmail(email);
+    validatePassword(password);
+    validateConfirmPassword(password, confirmPassword);
+
+    registerPeople(name, email, password, confirmPassword);
+
+    let existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+    let emailExists = existingUsers.some(user => user.email === email);
+    let  newUser;
+    if (emailExists) {
+      alert("Email already exists");
+    } else {
+      // Create new user object
+       newUser = {
+        name: name,
+        email: email,
+        password: password
+      };
+      existingUsers.push(newUser);
+    
+      localStorage.setItem("users", JSON.stringify(existingUsers));
+      document.getElementById("signup-form").reset();
+      alert("Registration successful!");
+    }
+       
+    
+    
+
+  } catch (err) {
+    alert(err.message);
+  }
+});
+
+
