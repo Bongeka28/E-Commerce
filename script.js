@@ -12,6 +12,12 @@ const registerBtn = document.getElementById("signup");
 const viewRegister = document.getElementById("signupDialog");
 const closeRegister = document.getElementById("closeSignup");
 
+//Cart and wislist
+
+const favoriteBtns = document.querySelectorAll(".bi.bi-heart");
+const viewFavorite = document.querySelector("#favDialog");
+const closeFavorite = document.querySelector("#heartButton");
+
 
 viewProductModalBtn.forEach((btn, index) => {
   btn.addEventListener("click", () => {
@@ -39,3 +45,12 @@ closeLogin.addEventListener("click", () => {
   viewLogin.close();
 });
 
+favoriteBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    viewFavorite.showModal();
+  });
+});
+
+closeFavorite.addEventListener("click", () => {
+  viewFavorite.close();
+});
