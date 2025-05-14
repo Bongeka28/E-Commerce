@@ -2,8 +2,11 @@
   --primary50: rgb(0, 166, 255);
   --primary100: rgb(0, 110, 255);
   --primary150: rgb(3, 86, 196);
+  --green5: rgb(243, 248, 244);
+  --green50: rgb(40, 189, 87);
   --green100: rgb(0, 125, 40);
   --green150: rgb(0, 95, 30);
+  --green200: rgb(12, 79, 33);
   --gray50: whitesmoke;
   --gray100: rgb(169, 169, 169);
   --gray150: rgb(66, 66, 66);
