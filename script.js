@@ -30,4 +30,12 @@ registerBtn.addEventListener("click", () => {
 closeRegister.addEventListener("click", () => {
   viewRegister.close();
 });
+//
+loginBtn.addEventListener("click", () => {
+  viewLogin.showModal();
+});
+
+closeLogin.addEventListener("click", () => {
+  viewLogin.close();
+});
 
