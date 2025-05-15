@@ -650,10 +650,9 @@ footer p {
 /* category filter */
 
 .category-filter {
-  margin: 20px 0;
+  margin: 70px 0;
   text-align: right;
   margin-right: 2rem;
-  position: relative;
 }
 
 #category-select {
