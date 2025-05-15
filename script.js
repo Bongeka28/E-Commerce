@@ -494,7 +494,7 @@ function AddToWishListRender() {
         </div>
 
         <div class="btn-favDialog">
-          <button class="btn-secondary" type="button" data-id="${wishListProduct.id}">Add to Cart</button>
+          <button class="fav-btn" type="button" data-id="${wishListProduct.id}">Add to Cart</button>
           <button class="btn-primary" type="button" data-id="${wishListItem.id}">Remove</button>
         </div>
       </div>

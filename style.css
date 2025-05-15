@@ -387,6 +387,108 @@ dialog {
   }
 }
 
+
+/* wishlist css */
+
+#favDialog {
+  border: none;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 600px;
+  max-width: 95%;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#heartButton {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: var(--green150);
+  float: right;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+#favDialog h1 {
+  font-size: 1.8rem;
+  color: var(--green200);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.fav {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.fav img {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.fav-description {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fav-description .title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.fav-description .price {
+
+  font-size: 1rem;
+  margin: 0.3rem 0;
+}
+
+.btn-favDialog {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.fav-btn {
+  background-color: #000;
+  color: white;
+  border: solid black;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--green100);
+}
+
+.btn-primary {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #aaa;
+}
+
 /* End of Carousel*/
 
 /* footer css */
@@ -605,54 +707,7 @@ footer p {
 
 }
 
-/* #cartDialog .cart .cart-description .title {
-    white-space: nowrap; 
-    width: 100px; 
-    overflow: hidden;
-    text-overflow: ellipsis;
-    border: 1px solid #000000;
-  }
-  #cartDialog .cart .cart-description .title:hover{
-    overflow: visible;
-  } */
-/* 
-#cartDialog .btn-cartcheckout {
-  width: 100%;
-  display: flex;
-  gap: 10rem;
-  align-content: center;
-  align-items: center;
-}
-
-.total-price {
-  height: 3rem;
-  border: 1px solid var(--gray100);
-  display: flex;
-  width: 50%;
-  gap: 10rem;
-  font-weight: bold;
-  align-items: center;
-  justify-content: center;
-
-}
-
-#cartDialog .btn-cartcheckout .btn-checkout {
-  width: 40%;
-  height: 3rem;
-  background-color: var(--black);
-  color: var(--white);
-  align-items: center;
-  justify-content: center;
-  border-radius: 5%;
-
-}
-
-#cartDialog .btn-cartcheckout .total-checkout {
-  width: 10rem;
-  height: 2rem;
-  border-radius: 5%;
-}
- */
+/* card css */
 
  #cartDialog {
   border: none;
