@@ -18,6 +18,7 @@ import {
   validatePassword,
   validateConfirmPassword,
   loginUser,
+  
 } from "../js/script_function.js";
 
 //fetch Tests
