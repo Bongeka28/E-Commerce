@@ -585,7 +585,7 @@ document.getElementById("signup-form").addEventListener("submit", function (e) {
   const confirmPassword = document.getElementById("confirm-password").value;
 
   try {
-    // Validate inputs
+   
     validateName(name);
     validateEmail(email);
     validatePassword(password);
@@ -610,6 +610,7 @@ document.getElementById("signup-form").addEventListener("submit", function (e) {
       localStorage.setItem("users", JSON.stringify(existingUsers));
       document.getElementById("signup-form").reset();
       alert("Registration successful!");
+      window.location.href = "index.html";
     }
        
     
