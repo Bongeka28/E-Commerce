@@ -17,6 +17,7 @@ import {
   validateEmail,
   validatePassword,
   validateConfirmPassword,
+  loginUser,
 } from "../js/script_function.js";
 
 //fetch Tests
@@ -464,3 +465,79 @@ describe('[registerPeople]', () => {
     expect(typeof validateConfirmPassword).toBe('function');
   });
 });
+
+
+//login
+// Mock localStorage
+global.localStorage = {
+  store: {},
+  getItem(key) {
+    return this.store[key] || null;
+  },
+  setItem(key, value) {
+    this.store[key] = String(value);
+  },
+  removeItem(key) {
+    delete this.store[key];
+  },
+  clear() {
+    this.store = {};
+  }
+};
+
+beforeEach(() => {
+  localStorage.clear();
+});
+//login user test
+describe('loginUser', () => {
+
+  test('should be defined', () => {
+    expect( loginUser).toBeDefined();
+  });
+  test('should be a function', () => {
+    expect(typeof loginUser).toBe('function');
+  });
+
+  test('should log in successfully with correct credentials', () => {
+    const testUser = { email: 'tshabi@gmail.com', password: 'password123' };
+    localStorage.setItem('users', JSON.stringify([testUser]));
+
+    const loggedInUser = loginUser('tshabi@gmail.com', 'password123');
+    expect(loggedInUser).toEqual(testUser);
+  });
+
+  test('should throw error if email is incorrect', () => {
+    const testUser = { email: 'tshabi@gmail.com', password: 'password123' };
+    localStorage.setItem('users', JSON.stringify([testUser]));
+
+    expect(() => {
+      loginUser('wrong@example.com', 'password123');
+    }).toThrow('Email not found.');
+  });
+
+  test('should throw error if password is incorrect', () => {
+    const testUser = { email: 'tshabi@gmail.com', password: 'password123' };
+    localStorage.setItem('users', JSON.stringify([testUser]));
+
+    expect(() => {
+      loginUser('tshabi@gmail.com', 'wrongpassword');
+    }).toThrow('');
+  });
+
+
+  test('should throw if email is empty', () => {
+    expect(() => loginUser('', 'wrongpassword')).toThrow('Invalid email');
+  });
+
+  test('should throw if email is only spaces', () => {
+    expect(() => loginUser('    ', 'wrongpassword')).toThrow('Invalid email');
+  });
+
+  test('should throw error if no user is registered', () => {
+    expect(() => {
+      loginUser('tshabi@gmail.com', 'password123');
+    }).toThrow('No users registered.');
+  });
+
+});
+
