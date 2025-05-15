@@ -49,7 +49,6 @@ button:hover {
 }
 
 .btn-primary {
-  /* background: var(--primary100); */
   color: var(--black);
   border: 1px solid var(--gray100);
 }
@@ -75,7 +74,6 @@ button:hover {
 nav {
   height: 4rem;
   background: var(--white);
-  /* background: var(--primary100); */
   color: var(--gray50);
   padding: 0 var(--space-md);
   display: flex;
@@ -88,7 +86,6 @@ nav {
   box-shadow: -1px 4px 13px -2px rgba(0, 0, 0, 0.75);
 }
 
-/* Changes made */
 .logo {
   font-weight: bold;
   font-size: 2rem;
@@ -161,7 +158,6 @@ nav .right a:hover {
   font-weight: bolder;
 }
 
-/* Changes made */
 nav .right i {
   color: var(--green200);
   font-size: 1.6rem;
@@ -169,20 +165,17 @@ nav .right i {
   transition: var(--transition-sm);
 }
 
-/* Changes made */
 nav .right i:hover {
   color: var(--green50);
   font-size: 2rem;
 }
 
-/* Changes made */
 nav .right #login {
   background-color: var(--green200);
   padding: .5rem;
   border-radius: 50px 50px;
 }
 
-/* Changes made */
 nav .right #signup {
   background-color: var(--green200);
   padding: .5rem;
@@ -198,7 +191,6 @@ main {
 }
 
 /* PRODUCT ****************************/
-/* Changes made */
 .product {
   border: 1px solid #b7d2c5;
   height: 30rem;
@@ -263,7 +255,6 @@ main {
   cursor: pointer;
 }
 
-/* Changes made */
 .product .discount {
   position: absolute;
   top: 0;
@@ -356,17 +347,13 @@ dialog {
   width: 100%;
   margin: 0;
   padding: 0;
-  /* position: relative;
-  display: flex; */
   flex-direction: column;
   gap: var(--lx-gap);
 
   .carousel {
-    /* aspect-ratio: 16/9; */
     height: 65%;
     width: 100%;
     position: relative;
-    /* overflow: hidden; */
 
     .item {
       opacity: 0;
@@ -382,87 +369,20 @@ dialog {
         object-position: top;
       }
 
-      /* .caption {
-        width: 100%;
-        padding: var(--lx-space-01);
-        position: absolute;
-        bottom: 0;
-        text-transform: uppercase;
-        text-align: center;
-        font-size: 12px;
-        background-color: rgba(0, 0, 0, 0.5);
-      } */
-
       &.active {
         opacity: 1;
         display: block;
       }
     }
   }
-
-  /* .btn {
-    padding: 1em 2em;
-    position: absolute;
-    transform: translateY(-50%);
-    top: 50%;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 900;
-    color: #10100e;
-    background-color: #ffffe6;
-    transition: transform 0.2s ease-in-out;
-
-    &:active,
-    &:focus {
-      transform: translateY(-50%) scale(0.9);
-    }
-
-    &:hover {
-      transform: translateY(-50%) scale(0.96);
-    }
-  }
-
-  .prev {
-    left: -5%;
-  }
-
-  .next {
-    right: -5%;
-  }
-
-  .dots {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    .dot {
-      cursor: pointer;
-      height: 10px;
-      width: 10px;
-      background-color: #242421;
-      transition: background-color 0.2s ease;
-
-      &.active,
-      &:hover {
-        background-color: #ffffe6;
-      }
-    }
-  } */
 }
 
 /* End of Carousel*/
 
-/* 
-footer css */
-
+/* footer css */
 
 footer {
   background-color: var(--green150);
-  /* background-color: lightslategray; */
   color: white;
   padding: 30px 0;
   text-align: center;
@@ -506,6 +426,8 @@ footer p {
   font-size: 14px;
   margin-top: 10px;
 }
+
+/* End of footer css */
 
 
 /* Wishlist css */
