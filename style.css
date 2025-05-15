@@ -605,7 +605,7 @@ footer p {
   #cartDialog .cart .cart-description .title:hover{
     overflow: visible;
   } */
-
+/* 
 #cartDialog .btn-cartcheckout {
   width: 100%;
   display: flex;
@@ -642,6 +642,139 @@ footer p {
   height: 2rem;
   border-radius: 5%;
 }
+ */
+
+ #cartDialog {
+  border: none;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 600px;
+  max-width: 95%;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#cartDialog h1 {
+  font-size: 1.8rem;
+  color: var(--green150);
+  margin-top: 0;
+}
+
+#cartButton {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: var(--green150);
+  float: right;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.cart {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.cart-img img {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.cart-description {
+  flex: 1;
+}
+
+.cart-description .title h1 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333;
+}
+
+.cart-description .price {
+  font-size: 1rem;
+  margin: 0.3rem 0;
+}
+
+.quatity-div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  
+}
+
+.btn-cartDialog {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.btn-saveitem,
+.btn-removeitem {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-saveitem:hover {
+  background-color: var(--green100);
+}
+
+.btn-removeitem {
+  background-color: #ccc;
+  color: #333;
+}
+
+.btn-removeitem:hover {
+  background-color: #aaa;
+}
+
+.btn-cartcheckout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.total-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--green200);
+}
+
+.btn-checkout {
+  background-color: var(--green50);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-checkout:hover {
+  background-color: var(--green100);
+}
+
+
+
+
+
 
 
 
