@@ -259,6 +259,37 @@ function registerPeople(name, email, password, confirmPassword) {
 }
 
 
+//login
+export function loginUser(email, password) {
+  const users = JSON.parse(localStorage.getItem('users')) || [];
+  if (!email || email.trim() === '') {
+    throw new Error('Invalid email');
+  }
+
+  if (!password || password.trim() === '') {
+    throw new Error('please enter the correct  password');
+  }
+
+  
+
+  if (users.length === 0) {
+    throw new Error('No users registered.');
+  }
+
+  const user = users.find(u => u.email === email);
+  if (!user) {
+    throw new Error('Email not found.');
+  }
+
+  if (user.password !== password) {
+    throw new Error('Incorrect password.');
+  }
+
+  return user;
+}
+
+
+
 
  export {
   cart,
