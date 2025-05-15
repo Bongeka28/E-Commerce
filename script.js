@@ -563,7 +563,9 @@ document.getElementById('signin-form').addEventListener("submit", function (e) {
       if (loggedInUser) {
         alert(`You have logged in successfully as ${loggedInUser.name}!`);
         document.getElementById('signin-form').reset();
+
       }
+      window.location.href = "index.html";
       
     } catch (error) {
       alert(error.message)

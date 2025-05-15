@@ -226,7 +226,7 @@ function validatePassword(password) {
     throw new Error('Invalid password');
   }
 
-  if(password.length < 6){
+  if(password.length < 7){
     throw new Error("Enter at least 7 characters")
   }
 }
