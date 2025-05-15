@@ -15,6 +15,7 @@ import {
   validateEmail,
   validatePassword,
   validateConfirmPassword,
+  loginUser
   
 
 } from "./js/script_function.js";
