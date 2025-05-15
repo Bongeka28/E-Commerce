@@ -278,8 +278,27 @@ document.getElementById("category-select").addEventListener("change", (e) => {
   displayProducts(filtered);
 });
 
-// Populate dropdown on load
+
 populateCategoryFilter(products1);
+
+
+//Search by title
+const searchInput = document.getElementById("searchInput");
+
+
+searchInput.addEventListener("input", () => {
+  const searchTerm = searchInput.value.toLowerCase(); 
+
+  const filteredProducts = products1.filter(product =>
+    product.title.toLowerCase().includes(searchTerm)
+  );
+
+  
+  container.innerHTML = "";
+  displayProducts(filteredProducts);
+});
+
+
 
 //Add to cart Render 
 let cartContainer = document.getElementById("cartDialog");
