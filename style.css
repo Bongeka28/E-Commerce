@@ -49,20 +49,24 @@ button:hover {
 }
 
 .btn-primary {
-  background: var(--primary100);
-  color: var(--gray50);
+  /* background: var(--primary100); */
+  color: var(--black);
+  border: 1px solid var(--gray100);
 }
+
+
 .btn-primary:hover {
-  background: var(--primary150);
+  background: var(--green150);
   color: var(--white);
 }
 
 .btn-secondary {
-  background: var(--gray200);
+  background: var(--green150);
   color: var(--gray50);
 }
+
 .btn-secondary:hover {
-  background: var(--black);
+  background: var(--gray100);
   color: var(--white);
 }
 
@@ -287,6 +291,64 @@ dialog {
 }
 
 
+#viewProductDialog .viewProductDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: var(--space-lg);
+  overflow-y: auto;
+
+}
+
+.dec-img {
+  cursor: pointer;
+  transition: var(--transition-lg);
+}
+
+#viewProductDialog .viewProductDiv .details-cart {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-left: var(--space-lg);
+}
+
+.productDesc {
+  border-style: solid;
+  border-width: 0.1rem;
+  padding: 0.2rem;
+  padding-left: 0.5rem;
+  padding-right: 1rem;
+  border-radius: 1rem;
+  border-color: rgb(10, 169, 121);
+
+
+}
+
+.dec-btn .dec-btnn {
+  position: fixed;
+  border: 1px solid var(--gray100);
+  width: 5rem;
+  height: 2rem;
+  margin-top: 0.4rem;
+}
+
+.dec-btn {
+  position: fixed;
+  background: white;
+  border-style: solid;
+  border-color: #75bc9a;
+  border-top: #fff;
+  border-left: #fff;
+  border-right: #fff;
+  width: 78%;
+  height: 3rem;
+  z-index: 10;
+  top: 6rem;
+}
+
+
+
 /* New Carousel*/
 
 .carousel-container {
@@ -494,62 +556,6 @@ footer p {
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
-}
-
-#viewProductDialog .viewProductDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  padding: var(--space-lg);
-  overflow-y: auto;
-
-}
-
-.dec-img {
-  cursor: pointer;
-  transition: var(--transition-lg);
-}
-
-#viewProductDialog .viewProductDiv .details-cart {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding-left: var(--space-lg);
-}
-
-.productDesc {
-  border-style: solid;
-  border-width: 0.1rem;
-  padding: 0.2rem;
-  padding-left: 0.5rem;
-  padding-right: 1rem;
-  border-radius: 1rem;
-  border-color: rgb(10, 169, 121);
-
-
-}
-
-.dec-btn .dec-btnn {
-  position: fixed;
-  border: 1px solid var(--gray100);
-  width: 5rem;
-  height: 2rem;
-  margin-top: 0.4rem;
-}
-
-.dec-btn {
-  position: fixed;
-  background: white;
-  border-style: solid;
-  border-color: #75bc9a;
-  border-top: #fff;
-  border-left: #fff;
-  border-right: #fff;
-  width: 78%;
-  height: 3rem;
-  z-index: 10;
-  top: 6rem;
 }
 #modalReviews {
   margin-top: 0.5rem;
